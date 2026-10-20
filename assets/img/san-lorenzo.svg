@@ -1,0 +1,24 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="440" viewBox="0 0 460 440">
+  <rect width="460" height="440" rx="30" fill="#f0f4fb"/>
+  <circle cx="230" cy="198" r="166" fill="#e4ebf6"/>
+  <defs>
+    <clipPath id="shirt">
+      <path d="M175 65 L285 65 L332 97 L390 164 L341 208 L320 177 L320 345 Q230 360 140 345 L140 177 L119 208 L70 164 L128 97 Z"/>
+    </clipPath>
+  </defs>
+  <path d="M175 65 L285 65 L332 97 L390 164 L341 208 L320 177 L320 345 Q230 360 140 345 L140 177 L119 208 L70 164 L128 97 Z" fill="#0b3279" stroke="#b5c2d6" stroke-width="4"/>
+  <g clip-path="url(#shirt)">
+    <rect x="140" y="70" width="13" height="270" fill="#db173f"/>
+    <rect x="167" y="70" width="13" height="270" fill="#db173f"/>
+    <rect x="194" y="70" width="13" height="270" fill="#db173f"/>
+    <rect x="221" y="70" width="13" height="270" fill="#db173f"/>
+    <rect x="248" y="70" width="13" height="270" fill="#db173f"/>
+    <rect x="275" y="70" width="13" height="270" fill="#db173f"/>
+  </g>
+  <path d="M175 65 Q230 126 285 65" fill="none" stroke="#9aa9c2" stroke-width="8"/>
+  <path d="M175 65 Q230 126 285 65" fill="none" stroke="#db173f" stroke-width="5"/>
+  <rect x="207" y="145" width="46" height="52" rx="10" fill="#fff" fill-opacity=".90"/>
+  <text x="230" y="179" text-anchor="middle" font-family="Arial" font-size="21" font-weight="bold" fill="#17345d">SS</text>
+  <text x="230" y="403" text-anchor="middle" font-family="Arial" font-size="23" font-weight="bold" fill="#243b5a">SAN LORENZO</text>
+</svg>

@@ -1,0 +1,415 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07162e">
+  <title>Sport Shop Online | Camisetas de fútbol</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+  <script src="assets/js/storage.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="#inicio" class="brand" aria-label="Sport Shop Online, inicio">
+        <span class="brand-mark">SS</span>
+        <span>SPORT <b>SHOP</b><small>ONLINE</small></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#productos">Camisetas</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#pedidos">Mis compras</a>
+      </nav>
+
+      <button id="abrirCarrito" class="cart-trigger" type="button">
+        🛒 <span>Carrito</span>
+        <strong id="contadorCarrito">0</strong>
+      </button>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">TEMPORADA 2026 · FÚTBOL ARGENTINO</p>
+          <h1>Tu pasión se <em>viste.</em></h1>
+
+          <p>
+            Las camisetas de tus equipos favoritos, en un solo lugar.
+            Elegí la tuya y viví la pasión del fútbol.
+          </p>
+
+          <a class="btn btn-primary" href="#productos">
+            Explorar camisetas <span aria-hidden="true">→</span>
+          </a>
+
+          <div class="hero-proof">
+            <span>✓ Compra simulada segura</span>
+            <span>✓ Envíos a todo el país</span>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-circle"></div>
+          <div class="hero-jersey">⚽</div>
+          <span class="hero-sticker">
+            TU EQUIPO.<br>TU PASIÓN.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits" id="beneficios">
+      <div class="container benefits-grid">
+
+        <div>
+          <span>🚚</span>
+          <div>
+            <b>Envíos a todo el país</b>
+            <small>Simulación de compra online</small>
+          </div>
+        </div>
+
+        <div>
+          <span>🏆</span>
+          <div>
+            <b>Equipos argentinos</b>
+            <small>Elegí tu camiseta favorita</small>
+          </div>
+        </div>
+
+        <div>
+          <span>🎁</span>
+          <div>
+            <b>10% de descuento</b>
+            <small>Usá el cupón SPORT10</small>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section container" id="productos">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow dark">NUESTRA COLECCIÓN</p>
+          <h2>Camisetas disponibles</h2>
+          <p>Encontrá la camiseta de tu club.</p>
+        </div>
+
+        <span class="pill" id="cantidadResultados">0 productos</span>
+      </div>
+
+      <div class="toolbar">
+
+        <label class="search-field">
+          <span>⌕</span>
+          <input
+            id="buscarProducto"
+            type="search"
+            placeholder="Buscar por equipo..."
+            aria-label="Buscar camiseta"
+          >
+        </label>
+
+        <select id="filtroStock" aria-label="Filtrar disponibilidad">
+          <option value="todos">Todos los productos</option>
+          <option value="disponibles">Solo disponibles</option>
+        </select>
+
+        <select id="ordenProductos" aria-label="Ordenar productos">
+          <option value="original">Orden destacado</option>
+          <option value="menor">Menor precio</option>
+          <option value="mayor">Mayor precio</option>
+          <option value="nombre">Nombre A-Z</option>
+        </select>
+
+      </div>
+
+      <div id="estadoCatalogo" class="catalog-status" role="status">
+        Cargando camisetas...
+      </div>
+
+      <div
+        id="grillaProductos"
+        class="product-grid"
+        aria-live="polite"
+      ></div>
+
+    </section>
+
+    <section class="promo">
+      <div class="container promo-inner">
+
+        <div>
+          <p class="eyebrow">BENEFICIO ESPECIAL</p>
+          <h2>10% OFF en tu pedido</h2>
+          <p>
+            Aplicá el código <strong>SPORT10</strong> en el carrito.
+          </p>
+        </div>
+
+        <button id="copiarCupon" class="btn btn-light" type="button">
+          Copiar SPORT10
+        </button>
+
+      </div>
+    </section>
+
+    <section class="section container" id="pedidos">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow dark">TUS COMPRAS</p>
+          <h2>Historial de pedidos</h2>
+          <p>
+            Las compras simuladas se guardan en este navegador.
+          </p>
+        </div>
+
+        <button
+          id="vaciarHistorial"
+          class="btn btn-outline btn-small"
+          type="button"
+        >
+          Borrar historial
+        </button>
+      </div>
+
+      <div id="listaPedidos" class="orders-list"></div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <b>SPORT SHOP ONLINE</b>
+        <p>Proyecto final de JavaScript · Simulador educativo</p>
+      </div>
+
+      <p>Los pedidos no generan pagos ni envíos reales.</p>
+    </div>
+  </footer>
+
+  <!-- CARRITO DE COMPRAS -->
+
+  <div id="fondoCarrito" class="overlay" hidden></div>
+
+  <aside
+    id="panelCarrito"
+    class="cart-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloCarrito"
+    aria-hidden="true"
+  >
+
+    <div class="cart-head">
+      <div>
+        <p class="eyebrow dark">TU SELECCIÓN</p>
+        <h2 id="tituloCarrito">Mi carrito</h2>
+      </div>
+
+      <button
+        id="cerrarCarrito"
+        class="icon-button"
+        type="button"
+        aria-label="Cerrar carrito"
+      >
+        ✕
+      </button>
+    </div>
+
+    <div class="cart-body">
+      <div id="itemsCarrito" aria-live="polite"></div>
+    </div>
+
+    <div class="cart-bottom">
+
+      <form id="formCupon" class="coupon-form">
+        <label for="codigoCupon">Código de descuento</label>
+
+        <div>
+          <input
+            id="codigoCupon"
+            placeholder="Ej. SPORT10"
+            autocomplete="off"
+          >
+
+          <button class="btn btn-outline btn-small" type="submit">
+            Aplicar
+          </button>
+        </div>
+      </form>
+
+      <p
+        id="estadoCupon"
+        class="coupon-note"
+        role="status"
+      ></p>
+
+      <div class="totals">
+
+        <div>
+          <span>Subtotal</span>
+          <strong id="subtotalCarrito">$0</strong>
+        </div>
+
+        <div>
+          <span>Descuento</span>
+          <strong id="descuentoCarrito">−$0</strong>
+        </div>
+
+        <div class="total-final">
+          <span>Total</span>
+          <strong id="totalCarrito">$0</strong>
+        </div>
+
+      </div>
+
+      <button
+        id="irCheckout"
+        class="btn btn-primary btn-full"
+        type="button"
+      >
+        Finalizar compra →
+      </button>
+
+      <button
+        id="vaciarCarrito"
+        class="btn btn-ghost btn-full"
+        type="button"
+      >
+        Vaciar carrito
+      </button>
+
+    </div>
+  </aside>
+
+  <!-- FORMULARIO PARA CONFIRMAR COMPRA -->
+
+  <div
+    id="fondoCheckout"
+    class="overlay overlay-checkout"
+    hidden
+  ></div>
+
+  <section
+    id="modalCheckout"
+    class="checkout-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="tituloCheckout"
+    aria-hidden="true"
+  >
+
+    <div class="checkout-head">
+      <div>
+        <p class="eyebrow dark">ÚLTIMO PASO</p>
+        <h2 id="tituloCheckout">Confirmar pedido</h2>
+      </div>
+
+      <button
+        id="cerrarCheckout"
+        class="icon-button"
+        type="button"
+        aria-label="Cerrar formulario"
+      >
+        ✕
+      </button>
+    </div>
+
+    <p class="muted">
+      Completá tus datos para registrar la compra simulada.
+      No se realiza ningún cobro.
+    </p>
+
+    <form id="formCheckout" class="checkout-form">
+
+      <label>
+        Nombre y apellido
+        <input
+          name="nombre"
+          type="text"
+          required
+          minlength="3"
+          maxlength="80"
+          autocomplete="name"
+          placeholder="Ej. Juan Pérez"
+        >
+      </label>
+
+      <label>
+        Correo electrónico
+        <input
+          name="email"
+          type="email"
+          required
+          maxlength="120"
+          autocomplete="email"
+          placeholder="nombre@correo.com"
+        >
+      </label>
+
+      <label>
+        Dirección de entrega
+        <input
+          name="direccion"
+          type="text"
+          required
+          minlength="5"
+          maxlength="160"
+          autocomplete="street-address"
+          placeholder="Calle, número, ciudad"
+        >
+      </label>
+
+      <label>
+        Medio de pago (simulado)
+        <select name="pago" required>
+          <option value="">Seleccionar</option>
+          <option value="Transferencia simulada">
+            Transferencia simulada
+          </option>
+          <option value="Efectivo simulado">
+            Efectivo simulado
+          </option>
+        </select>
+      </label>
+
+      <div class="checkout-summary">
+        Total del pedido
+        <strong id="totalCheckout">$0</strong>
+      </div>
+
+      <button
+        id="confirmarPedido"
+        class="btn btn-primary btn-full"
+        type="submit"
+      >
+        Confirmar compra
+      </button>
+
+    </form>
+  </section>
+
+  <div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+</body>
+</html>

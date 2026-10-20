@@ -1,0 +1,45 @@
+
+[
+  {
+    "id": 1,
+    "nombre": "Estudiantes de La Plata",
+    "precio": 45000,
+    "stock": 10,
+    "imagen": "assets/img/estudiantes.svg"
+  },
+  {
+    "id": 2,
+    "nombre": "River Plate",
+    "precio": 55000,
+    "stock": 8,
+    "imagen": "assets/img/river.svg"
+  },
+  {
+    "id": 3,
+    "nombre": "Racing Club",
+    "precio": 50000,
+    "stock": 6,
+    "imagen": "assets/img/racing.svg"
+  },
+  {
+    "id": 4,
+    "nombre": "Independiente",
+    "precio": 48000,
+    "stock": 7,
+    "imagen": "assets/img/independiente.svg"
+  },
+  {
+    "id": 5,
+    "nombre": "Boca Juniors",
+    "precio": 55000,
+    "stock": 12,
+    "imagen": "assets/img/boca.svg"
+  },
+  {
+    "id": 6,
+    "nombre": "San Lorenzo",
+    "precio": 47000,
+    "stock": 5,
+    "imagen": "assets/img/san-lorenzo.svg"
+  }
+]
