@@ -1,0 +1,8 @@
+[
+  {"id":1,"nombre":"Estudiantes de La Plata","equipo":"Estudiantes","precio":45000,"stock":10,"imagen":"assets/img/estudiantes.svg","categoria":"Primera División"},
+  {"id":2,"nombre":"River Plate","equipo":"River","precio":55000,"stock":8,"imagen":"assets/img/river.svg","categoria":"Primera División"},
+  {"id":3,"nombre":"Racing Club","equipo":"Racing","precio":50000,"stock":6,"imagen":"assets/img/racing.svg","categoria":"Primera División"},
+  {"id":4,"nombre":"Independiente","equipo":"Independiente","precio":48000,"stock":7,"imagen":"assets/img/independiente.svg","categoria":"Primera División"},
+  {"id":5,"nombre":"Boca Juniors","equipo":"Boca","precio":55000,"stock":12,"imagen":"assets/img/boca.svg","categoria":"Primera División"},
+  {"id":6,"nombre":"San Lorenzo","equipo":"San Lorenzo","precio":47000,"stock":5,"imagen":"assets/img/san-lorenzo.svg","categoria":"Primera División"}
+]
